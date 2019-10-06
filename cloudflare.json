@@ -18,7 +18,7 @@
     "app_wizard_version": "1.0.0",
     "configuration": {
         "api_url": {
-            "description" : "Cloudflare API URL. Currently version 4",
+            "description": "Cloudflare API URL. Currently version 4",
             "data_type": "string",
             "required": true,
             "default": "https://api.cloudflare.com/client/v4/",
@@ -49,9 +49,9 @@
             "order": 3
         },
         "zone_id": {
-            "description" : "Cloudflare Zone ID for this Asset",
+            "description": "Cloudflare Zone ID for this Asset",
             "data_type": "string",
-            "required" : true,
+            "required": true,
             "default": "1f884ef1cebb17a355743dc3b1aabe1f",
             "order": 4
         }
@@ -281,7 +281,7 @@
                     "default": "",
                     "order": 3
                 },
-                "uri_path" : {
+                "uri_path": {
                     "description": "URL to match",
                     "data_type": "string",
                     "required": false,
@@ -290,9 +290,8 @@
                     "value_list": [],
                     "default": "",
                     "order": 0
-
                 },
-                "ip" :{
+                "ip": {
                     "description": "ip",
                     "data_type": "string",
                     "required": false,
@@ -301,7 +300,6 @@
                     "value_list": [],
                     "default": "",
                     "order": 2
-
                 },
                 "user_agent": {
                     "description": "Browser/UserAgent",
@@ -318,7 +316,6 @@
                 {
                     "data_path": "action_result.parameter.expression",
                     "data_type": "string",
-                    "contains": [],
                     "column_name": "expression",
                     "column_order": 0
                 },
@@ -326,19 +323,98 @@
                     "data_path": "action_result.status",
                     "data_type": "string",
                     "column_name": "status",
-                    "column_order": 1
+                    "column_order": 1,
+                    "example_values": [
+                        "success"
+                    ]
                 },
                 {
                     "data_path": "action_result.message",
-                    "data_type": "string"
+                    "data_type": "string",
+                    "example_values": [
+                        "Id: 558de5fd197449d28ae88b95b08a82d4"
+                    ]
                 },
                 {
                     "data_path": "summary.total_objects",
-                    "data_type": "numeric"
+                    "data_type": "numeric",
+                    "example_values": [
+                        1
+                    ]
                 },
                 {
                     "data_path": "summary.total_objects_successful",
-                    "data_type": "numeric"
+                    "data_type": "numeric",
+                    "example_values": [
+                        1
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.success",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.paused",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.expression",
+                    "data_type": "string",
+                    "example_values": [
+                        "ip.addr ne 8.8.8.8 and http.user_agent eq \"Mozillabot\""
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.id",
+                    "data_type": "string",
+                    "example_values": [
+                        "558de5fd197449d28ae88b95b08a82d4"
+                    ],
+                    "contains": [
+                        "md5"
+                    ]
+                },
+                {
+                    "data_path": "action_result.parameter.uri_path",
+                    "data_type": "string",
+                    "example_values": [
+                        "admin.php"
+                    ]
+                },
+                {
+                    "data_path": "action_result.parameter.ip",
+                    "data_type": "string",
+                    "example_values": [
+                        "8.8.8.8"
+                    ],
+                    "contains": [
+                        "ip"
+                    ]
+                },
+                {
+                    "data_path": "action_result.parameter.user_agent",
+                    "data_type": "string",
+                    "example_values": [
+                        "MOzillabot"
+                    ]
+                },
+                {
+                    "data_path": "action_result.summary.id",
+                    "data_type": "string",
+                    "example_values": [
+                        "558de5fd197449d28ae88b95b08a82d4"
+                    ],
+                    "contains": [
+                        "md5"
+                    ]
                 }
             ],
             "render": {

@@ -323,7 +323,7 @@ class CloudflareConnector(BaseConnector):
         ip = param.get('ip', '')
 
         if expression is None:
-            expression = json.dumps("ip.src eq {0} and http.user_agent ~ \"*{1}\" and http.request.uri.path eq \"{2}\"".format(ip, user_agent, uri_path))
+            expression = """ip.addr eq {0} and http.user_agent eq "{1}" and http.request.uri.path contains "{2}" """.format(ip, user_agent, uri_path)
         self.save_progress("Evaluating expression as: {0}".format(expression))
         filter_rule_data = [{"expression": expression}]
         # make rest call
@@ -410,8 +410,15 @@ class CloudflareConnector(BaseConnector):
         action = param.get('action', 'challenge')
         # expression = param.get('expression', '')
         id = param.get('id', '')
-        ids = id.split(",")
-        firewall_rule_data = [{"action": action, "filter": ids}]
+        # ids = id.split(",")
+        firewall_rule_data = [
+                {
+                    "filter": {
+                        "id": id
+                    },
+                    "action": action
+                }
+            ]
         # make rest call
         ret_val, response = self._make_rest_call('/firewall/rules', action_result, json=firewall_rule_data,
                                                  params=None, headers=None, method='post')
@@ -424,12 +431,12 @@ class CloudflareConnector(BaseConnector):
         # Now post process the data,  uncomment code as you deem fit
 
         # Add the response into the data section
-        # response = self._flatten_response_data(response)
+        response = self._flatten_response_data(response)
         action_result.add_data(response)
 
         # Add a dictionary that is made up of the most important values from data into the summary
-        # summary = action_result.update_summary({})
-        # summary['num_data'] = len(action_result['data'])
+        summary = action_result.update_summary({})
+        summary['id'] = response['id']
 
         # Return success, no need to set the message, only the status
         # BaseConnector will create a textual message based off of the summary dictionary
