@@ -423,6 +423,99 @@
             "versions": "EQ(*)"
         },
         {
+            "action": "delete filter",
+            "identifier": "delete_filter",
+            "description": "delete a filter",
+            "verbose": "",
+            "type": "generic",
+            "read_only": false,
+            "parameters": {
+                "id": {
+                    "description": "filter id",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": true,
+                    "contains": [],
+                    "value_list": [],
+                    "default": "",
+                    "order": 3
+                }
+            },
+            "output": [
+                {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "column_name": "status",
+                    "column_order": 1,
+                    "example_values": [
+                        "success"
+                    ]
+                },
+                {
+                    "data_path": "action_result.message",
+                    "data_type": "string",
+                    "example_values": [
+                        "Id: 558de5fd197449d28ae88b95b08a82d4"
+                    ]
+                },
+                {
+                    "data_path": "summary.total_objects",
+                    "data_type": "numeric",
+                    "example_values": [
+                        1
+                    ]
+                },
+                {
+                    "data_path": "summary.total_objects_successful",
+                    "data_type": "numeric",
+                    "example_values": [
+                        1
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.success",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.paused",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+
+                {
+                    "data_path": "action_result.data.*.id",
+                    "data_type": "string",
+                    "example_values": [
+                        "558de5fd197449d28ae88b95b08a82d4"
+                    ],
+                    "contains": [
+                        "md5"
+                    ]
+                },
+                {
+                    "data_path": "action_result.summary.id",
+                    "data_type": "string",
+                    "example_values": [
+                        "558de5fd197449d28ae88b95b08a82d4"
+                    ],
+                    "contains": [
+                        "md5"
+                    ]
+                }
+            ],
+            "render": {
+                "type": "table"
+            },
+            "versions": "EQ(*)"
+        },
+        {
             "action": "delete firewall rule",
             "identifier": "remove_rule",
             "description": "remove firewall rule",
@@ -520,6 +613,105 @@
                     "data_type": "string",
                     "contains": [],
                     "column_name": "id",
+                    "column_order": 2
+                },
+                {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "column_name": "status",
+                    "column_order": 3
+                },
+                {
+                    "data_path": "action_result.message",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "summary.total_objects",
+                    "data_type": "numeric"
+                },
+                {
+                    "data_path": "summary.total_objects_successful",
+                    "data_type": "numeric"
+                }
+            ],
+            "render": {
+                "type": "table"
+            },
+            "versions": "EQ(*)"
+        },
+        {
+            "action": "update firewall rule",
+            "identifier": "update_rule",
+            "description": "update firewall rule",
+            "verbose": "",
+            "type": "contain",
+            "read_only": false,
+            "parameters": {
+                "action": {
+                    "description": "mode of action.",
+                    "data_type": "string",
+                    "required": false,
+                    "primary": false,
+                    "contains": [],
+                    "value_list": [
+                        "block",
+                        "challenge",
+                        "javascript challenge",
+                        "allow",
+                        "log"
+                    ],
+                    "default": "",
+                    "order": 0
+                },
+                "filter_id": {
+                    "description": "filter id to use",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": false,
+                    "contains": [],
+                    "value_list": [],
+                    "default": "",
+                    "order": 2
+                },
+                "rule_id": {
+                    "description": "rule id to use",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": true,
+                    "contains": [],
+                    "value_list": [],
+                    "default": "",
+                    "order": 2
+                }
+
+            },
+            "output": [
+                {
+                    "data_path": "action_result.parameter.action",
+                    "data_type": "string",
+                    "contains": [],
+                    "column_name": "action",
+                    "column_order": 0
+                },
+                {
+                    "data_path": "action_result.parameter.expression",
+                    "data_type": "string",
+                    "contains": [],
+                    "column_name": "expression",
+                    "column_order": 4
+                },
+                {
+                    "data_path": "action_result.parameter.rule_id",
+                    "data_type": "string",
+                    "contains": [],
+                    "column_name": "Rule",
+                    "column_order": 1
+                },
+                {
+                    "data_path": "action_result.parameter.filter_id",
+                    "data_type": "string",
+                    "contains": [],
+                    "column_name": "Filter",
                     "column_order": 2
                 },
                 {

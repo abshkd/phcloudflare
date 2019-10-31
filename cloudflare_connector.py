@@ -174,134 +174,6 @@ class CloudflareConnector(BaseConnector):
         self.save_progress("Test Connectivity Passed")
         return action_result.set_status(phantom.APP_SUCCESS)
 
-    # def _handle_block_ip(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     action = param.get('action', '')
-    #     ip = param.get('ip', '')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-
-    # def _handle_unblock_ip(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     action = param.get('action', '')
-    #     ip = param.get('ip', '')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-
-    # def _handle_update_filter(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     id = param.get('id', '')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-    #
     def _handle_create_filter(self, param):
 
         # Implement the handler here
@@ -350,48 +222,47 @@ class CloudflareConnector(BaseConnector):
         # BaseConnector will create a textual message based off of the summary dictionary
         return action_result.set_status(phantom.APP_SUCCESS)
 
-    # def _handle_remove_rule(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     # optional_parameter = param.get('optional_parameter', 'default_value')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-    #
+    def _handle_delete_filter(self, param):
+
+        # Implement the handler here
+        # use self.save_progress(...) to send progress messages back to the platform
+        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+
+        # Add an action result object to self (BaseConnector) to represent the action for this param
+        action_result = self.add_action_result(ActionResult(dict(param)))
+
+        # Access action parameters passed in the 'param' dictionary
+
+        # Required values can be accessed directly
+        # required_parameter = param['required_parameter']
+
+        # Optional values should use the .get() function
+        id = param['id']
+
+        # make rest call
+        ret_val, response = self._make_rest_call('/filters/{0}'.format(id), action_result,
+                                                 params=None, headers=None, method='delete')
+
+        if (phantom.is_fail(ret_val)):
+            # the call to the 3rd party device or service failed, action result should contain all the error details
+            # for now the return is commented out, but after implementation, return from here
+            return action_result.get_status()
+
+        # Now post process the data,  uncomment code as you deem fit
+
+        # Add the response into the data section
+        response = self._flatten_response_data(response)
+        action_result.add_data(response)
+
+        # Add a dictionary that is made up of the most important values from data into the summary
+        summary = action_result.update_summary({})
+        summary['success'] = response['success']
+        # summary['num_data'] = len(action_result['data'])
+
+        # Return success, no need to set the message, only the status
+        # BaseConnector will create a textual message based off of the summary dictionary
+        return action_result.set_status(phantom.APP_SUCCESS)
+
     def _handle_add_rule(self, param):
 
         # Implement the handler here
@@ -445,90 +316,58 @@ class CloudflareConnector(BaseConnector):
         # For now return Error with a message, in case of success we don't set the message, but use the summary
         return action_result.set_status(phantom.APP_SUCCESS)
 
-    # def _handle_unblock_ua(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     user_agent = param.get('user_agent', '')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-    #
-    # def _handle_block_ua(self, param):
-    #
-    #     # Implement the handler here
-    #     # use self.save_progress(...) to send progress messages back to the platform
-    #     self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
-    #
-    #     # Add an action result object to self (BaseConnector) to represent the action for this param
-    #     action_result = self.add_action_result(ActionResult(dict(param)))
-    #
-    #     # Access action parameters passed in the 'param' dictionary
-    #
-    #     # Required values can be accessed directly
-    #     # required_parameter = param['required_parameter']
-    #
-    #     # Optional values should use the .get() function
-    #     action = param.get('action', '')
-    #     user_agent = param.get('user_agent', '')
-    #
-    #     # make rest call
-    #     ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
-    #
-    #     if (phantom.is_fail(ret_val)):
-    #         # the call to the 3rd party device or service failed, action result should contain all the error details
-    #         # for now the return is commented out, but after implementation, return from here
-    #         # return action_result.get_status()
-    #         pass
-    #
-    #     # Now post process the data,  uncomment code as you deem fit
-    #
-    #     # Add the response into the data section
-    #     action_result.add_data(response)
-    #
-    #     # Add a dictionary that is made up of the most important values from data into the summary
-    #     # summary = action_result.update_summary({})
-    #     # summary['num_data'] = len(action_result['data'])
-    #
-    #     # Return success, no need to set the message, only the status
-    #     # BaseConnector will create a textual message based off of the summary dictionary
-    #     # return action_result.set_status(phantom.APP_SUCCESS)
-    #
-    #     # For now return Error with a message, in case of success we don't set the message, but use the summary
-    #     return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
+    def _handle_update_rule(self, param):
+
+        # Implement the handler here
+        # use self.save_progress(...) to send progress messages back to the platform
+        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+
+        # Add an action result object to self (BaseConnector) to represent the action for this param
+        action_result = self.add_action_result(ActionResult(dict(param)))
+
+        # Access action parameters passed in the 'param' dictionary
+
+        # Required values can be accessed directly
+        # required_parameter = param['required_parameter']
+
+        # Optional values should use the .get() function
+        action = param.get('action', 'challenge')
+        # expression = param.get('expression', '')
+        filter_id = param['filter_id']
+        rule_id = param['rule_id']
+        # ids = id.split(",")
+        firewall_rule_data = {
+                    "id": rule_id,
+                    "filter": {
+                        "id": filter_id
+                    },
+                    "action": action
+                }
+        # make rest call
+        ret_val, response = self._make_rest_call('/firewall/rules/{0}'.format(rule_id), action_result, json=firewall_rule_data,
+                                                 params=None, headers=None, method='put')
+
+        if (phantom.is_fail(ret_val)):
+            # the call to the 3rd party device or service failed, action result should contain all the error details
+            # for now the return is commented out, but after implementation, return from here
+            return action_result.get_status()
+
+        # Now post process the data,  uncomment code as you deem fit
+
+        # Add the response into the data section
+        response = self._flatten_response_data(response)
+        action_result.add_data(response)
+
+        # Add a dictionary that is made up of the most important values from data into the summary
+        # summary = action_result.update_summary({})
+        # summary['id'] = "testvalue"
+
+        # Return success, no need to set the message, only the status
+        # BaseConnector will create a textual message based off of the summary dictionary
+        # return action_result.set_status(phantom.APP_SUCCESS)
+
+        # For now return Error with a message, in case of success we don't set the message, but use the summary
+        return action_result.set_status(phantom.APP_SUCCESS)
 
     def handle_action(self, param):
 
@@ -553,6 +392,12 @@ class CloudflareConnector(BaseConnector):
 
         elif action_id == 'create_filter':
             ret_val = self._handle_create_filter(param)
+
+        elif action_id == 'delete_filter':
+            ret_val = self._handle_delete_filter(param)
+
+        elif action_id == 'update_rule':
+            ret_val = self._handle_update_rule(param)
 
         elif action_id == 'remove_rule':
             ret_val = self._handle_remove_rule(param)
